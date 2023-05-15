@@ -12,7 +12,7 @@ def process(fields: dict) -> dict:
 
         #Convert formatted text into a list of words and get rid of /n and /t and other special characters 
         def convert_to_words(text: str) -> list:
-        
+            text = text.lower()
             #remove /n and /t
             text = text.replace('\n', ' ')
             text = text.replace('\t', ' ')
@@ -21,6 +21,17 @@ def process(fields: dict) -> dict:
             #remove empty strings
             text = list(filter(None, text))
 
+            #remove anything from this list
+            filtered_words = ['Subject:','[Customer','Name]','[Your','Company]','[Company','Name],','Name]','[Customer','Name],','[Your','Company]','[Customer','Name],','[Your','Company]',"subject:",'[customer','name]','[your','company]','[company','name],','name]','[customer','name],','[your','company]','[customer','name],','[your','company]']
+            #filtered words but lower case
+            filtered_words = []
+            for word in range(len(text)):
+                
+                if text[word] in filtered_words:
+                    text[word] = ''
+            #remove empty strings
+            text = list(filter(None, text))
+            
             return text
         
         for i in range(len(var_list)):
