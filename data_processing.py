@@ -22,9 +22,9 @@ def process(fields: dict) -> dict:
             text = list(filter(None, text))
 
             #remove anything from this list
-            filtered_words = ['Subject:','[Customer','Name]','[Your','Company]','[Company','Name],','Name]','[Customer','Name],','[Your','Company]','[Customer','Name],','[Your','Company]',"subject:",'[customer','name]','[your','company]','[company','name],','name]','[customer','name],','[your','company]','[customer','name],','[your','company]']
-            #filtered words but lower case
-            filtered_words = []
+            filtered_words = ['Subject:','[Customer','Name]','[Your','Company]','[Company','Name],','Name]','[Customer','Name],','[Your','Company]','[Customer','Name],','[Your','Company]',"subject:",'[customer','name]','[your','company]','[company','name],','name]','[customer','name],','[your','company]','[customer','name],','[your','company]','the']
+
+          
             for word in range(len(text)):
                 
                 if text[word] in filtered_words:

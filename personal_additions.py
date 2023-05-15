@@ -1,17 +1,18 @@
 def personal_additions(marketing_standard, feedback_standard, job_standard, support_standard): 
     #Marketing
     marketing_standard['?'] = 30
+    marketing_standard['buy'] = 500
     marketing_standard['!'] = 30
-    marketing_standard['exclusive'] = 40
+    marketing_standard['exclusive'] = 1000
     marketing_standard['limited'] = 38
     marketing_standard['new'] = 36
     marketing_standard['free'] = 34
     marketing_standard['sale'] = 32
     marketing_standard['now'] = 30
-    marketing_standard['special'] = 28
-    marketing_standard['offer'] = 26
+    marketing_standard['special'] = 1000
+    marketing_standard['offer'] = 1000
     marketing_standard['save'] = 24
-    marketing_standard['discount'] = 22
+    marketing_standard['discount'] = 1000
     marketing_standard['last'] = 20
     marketing_standard['chance'] = 18
     marketing_standard['hurry'] = 16
@@ -22,10 +23,12 @@ def personal_additions(marketing_standard, feedback_standard, job_standard, supp
     marketing_standard['discover'] = 6
     marketing_standard['extra'] = 4
     marketing_standard['extraordinary'] = 2
-
+    marketing_standard['announcement'] = 100
+    marketing_standard['announce'] = 100
+    marketing_standard['limited'] = 100
     #Feedback
     feedback_standard['thank you'] = 40
-    feedback_standard['feedback'] = 38
+    feedback_standard['feedback'] = len(feedback_standard) /4
     feedback_standard['experience'] = 36
     feedback_standard['quality'] = 34
     feedback_standard['service'] = 32
@@ -46,18 +49,20 @@ def personal_additions(marketing_standard, feedback_standard, job_standard, supp
     feedback_standard['suggestions'] = 2
 
     #Customer Support
-    support_standard['hello'] = 40
+    support_standard["please"] = 100
+    support_standard['help'] = 100
     support_standard['feedback'] = 40
     support_standard['thank'] = 38
-    support_standard['assistance'] = 36
-    support_standard['help'] = 34
-    support_standard['issue'] = 32
-    support_standard['problem'] = 30
-    support_standard['resolved'] = 28
+    support_standard['thanks'] = 38
+    support_standard['assistance'] = len(feedback_standard) /4
+    support_standard['help'] = len(feedback_standard) /4
+    support_standard['issue'] = len(feedback_standard) /4
+    support_standard['problem'] = len(feedback_standard) /4
+    support_standard['resolved'] = len(feedback_standard) /4
     support_standard['apologize'] = 26
     support_standard['understand'] = 24
     support_standard['solution'] = 22
-    support_standard['support'] = 100
+    support_standard['support'] = len(feedback_standard) /2
     support_standard['escalate'] = 18
     support_standard['prompt'] = 16
     support_standard['response'] = 14
