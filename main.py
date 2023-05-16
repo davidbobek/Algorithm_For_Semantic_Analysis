@@ -62,7 +62,7 @@ def plot_top_25(sorted_dict:dict, email_type:str) -> None:
     plt.title('Top 25 words in ' + email_type + ' emails')
     plt.xlabel('Words')
     plt.ylabel('Frequency')
-    #plt.show()
+    plt.show()
     return final_dict
 
 marketing_standard = plot_top_25(sorted_marketing_word_counts, 'marketing')
@@ -71,7 +71,7 @@ job_standard = plot_top_25(sorted_job_word_counts, 'job')
 support_standard = plot_top_25(sorted_customer_support_word_counts, 'customer support')
 
 #Personal additions
-marketing_standard, feedback_standard, job_standard, support_standard = personal_additions(marketing_standard, feedback_standard, job_standard, support_standard)
+#marketing_standard, feedback_standard, job_standard, support_standard = personal_additions(marketing_standard, feedback_standard, job_standard, support_standard)
 
 
 

@@ -28,8 +28,8 @@ def personal_additions(marketing_standard, feedback_standard, job_standard, supp
     marketing_standard['limited'] = 100
     #Feedback
     feedback_standard['thank you'] = 40
-    feedback_standard['feedback'] = len(feedback_standard) /4
-    feedback_standard['experience'] = 36
+    feedback_standard['feedback'] = 100000
+    feedback_standard['experience'] = 100000
     feedback_standard['quality'] = 34
     feedback_standard['service'] = 32
     feedback_standard['product'] = 30
@@ -39,7 +39,7 @@ def personal_additions(marketing_standard, feedback_standard, job_standard, supp
     feedback_standard['issue'] = 22
     feedback_standard['appreciate'] = 20
     feedback_standard['excellent'] = 18
-    feedback_standard['recommend'] = 16
+    feedback_standard['recommend'] = 100000
     feedback_standard['helpful'] = 14
     feedback_standard['prompt'] = 12
     feedback_standard['responsive'] = 10
@@ -71,6 +71,24 @@ def personal_additions(marketing_standard, feedback_standard, job_standard, supp
     support_standard['update'] = 8
     support_standard['appreciate'] = 6
     support_standard['satisfied'] = 2 
+    
+    job_standard['job'] = 100000
+    job_standard['career'] = 100000
+    job_standard['opportunity'] = 100000
+    job_standard['opportunities'] = 100000
+    job_standard['apply'] = 100000
+    job_standard['position'] = 100000
+    job_standard['positions'] = 100000
+    job_standard['resume'] = 100000
+    job_standard['interview'] = 100000
+    job_standard['interviews'] = 100000
+    job_standard['hiring'] = 100000
+    job_standard['hired'] = 100000
+    job_standard['recruiter'] = 100000
+    job_standard['recruiters'] = 100000
+    job_standard['recruiting'] = 100000
+    job_standard['skills'] = 100000
+    
     
     return marketing_standard, feedback_standard, job_standard, support_standard
 
