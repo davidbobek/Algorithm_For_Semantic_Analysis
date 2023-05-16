@@ -1,5 +1,5 @@
 from data_processing import process
-from personal_additions import personal_additions
+from personal_additions import personal_additions, score_bonuses    
 import matplotlib.pyplot as plt
 marketing_mails_list = []   
 feeback_mails_list = []
@@ -62,7 +62,7 @@ def plot_top_25(sorted_dict:dict, email_type:str) -> None:
     plt.title('Top 25 words in ' + email_type + ' emails')
     plt.xlabel('Words')
     plt.ylabel('Frequency')
-    plt.show()
+    #plt.show()
     return final_dict
 
 marketing_standard = plot_top_25(sorted_marketing_word_counts, 'marketing')
@@ -74,34 +74,38 @@ support_standard = plot_top_25(sorted_customer_support_word_counts, 'customer su
 #marketing_standard, feedback_standard, job_standard, support_standard = personal_additions(marketing_standard, feedback_standard, job_standard, support_standard)
 
 
+while True:
+    user_input = input('Enter your email: ')
+    if user_input == 'quit':
+        break
+    user_input = user_input.lower()
+    user_input = user_input.split()
 
-user_input = input('Enter your email: ')
-user_input = user_input.lower()
-user_input = user_input.split()
+    #compare the user input to the top 25 words in each list
+    def compare(user_input:list, standard:dict,email_type:str) -> int:
+        score = 0
+        for word in user_input:
+            if word in standard:
+                score += standard[word]
+        return score
 
-#compare the user input to the top 25 words in each list
-def compare(user_input:list, standard:dict,email_type:str) -> int:
-    score = 0
-    for word in user_input:
-        if word in standard:
-            score += standard[word]
-    return score
-
-results = []
-for standard in [marketing_standard, feedback_standard, support_standard,job_standard ]:
-    email_type = ''
-    if standard == marketing_standard:
-        email_type = 'marketing'
-    elif standard == feedback_standard:
-        email_type = 'feedback'
-    elif standard == job_standard:
-        email_type = 'job'
-    elif standard == support_standard:
-        email_type = 'customer support'
-    score = compare(user_input, standard, email_type)
-    results.append((email_type, score))
-print(results)
-print('Your email is most similar to the ' + max(results, key=lambda x: x[1])[0] + ' emails.')
+    results = []
+    for standard in [marketing_standard, feedback_standard, support_standard,job_standard ]:
+        email_type = ''
+        if standard == marketing_standard:
+            email_type = 'marketing'
+        elif standard == feedback_standard:
+            email_type = 'feedback'
+        elif standard == job_standard:
+            email_type = 'job'
+        elif standard == support_standard:
+            email_type = 'customer support'
+        score = compare(user_input, standard, email_type)
+        score = score/len(user_input)
+        score =  score_bonuses(user_input, score,email_type)
+        results.append((email_type, score))
+    print(results)
+    print('Your email is most similar to the ' + max(results, key=lambda x: x[1])[0] + ' emails.')
 
 #Insights:
 #The top 25 words in the marketing emails are mostly words that are used to describe the product or service being marketed.

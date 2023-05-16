@@ -1,6 +1,6 @@
 def personal_additions(marketing_standard, feedback_standard, job_standard, support_standard): 
     #Marketing
-    marketing_standard['?'] = 30
+    """ marketing_standard['?'] = 30
     marketing_standard['buy'] = 500
     marketing_standard['!'] = 30
     marketing_standard['exclusive'] = 1000
@@ -25,9 +25,9 @@ def personal_additions(marketing_standard, feedback_standard, job_standard, supp
     marketing_standard['extraordinary'] = 2
     marketing_standard['announcement'] = 100
     marketing_standard['announce'] = 100
-    marketing_standard['limited'] = 100
+    marketing_standard['limited'] = 100 """
     #Feedback
-    feedback_standard['thank you'] = 40
+    """  feedback_standard['thank you'] = 40
     feedback_standard['feedback'] = 100000
     feedback_standard['experience'] = 100000
     feedback_standard['quality'] = 34
@@ -46,10 +46,10 @@ def personal_additions(marketing_standard, feedback_standard, job_standard, supp
     feedback_standard['impressed'] = 8
     feedback_standard['reliable'] = 6
     feedback_standard['easy'] = 4
-    feedback_standard['suggestions'] = 2
+    feedback_standard['suggestions'] = 2 """
 
     #Customer Support
-    support_standard["please"] = 100
+    """ support_standard["please"] = 100
     support_standard['help'] = 100
     support_standard['feedback'] = 40
     support_standard['thank'] = 38
@@ -87,30 +87,45 @@ def personal_additions(marketing_standard, feedback_standard, job_standard, supp
     job_standard['recruiter'] = 100000
     job_standard['recruiters'] = 100000
     job_standard['recruiting'] = 100000
-    job_standard['skills'] = 100000
+    job_standard['skills'] = 100000 """
     
+    #job if we can spot all of these words in the email, we can assume it is a job offer
+        
+        
     
     return marketing_standard, feedback_standard, job_standard, support_standard
 
-"""
-Hello
-Thank you
-Assistance
-Help
-Issue
-Problem
-Resolved
-Apologize
-Understand
-Solution
-Support
-Escalate
-Prompt
-Response
-Account
-Information
-Update
-Appreciate
-Feedback
-Satisfied
-"""
+def micro_function(score,text,job_keywords):
+    count = 0
+    for word in job_keywords:
+        if word in text:
+            count += 1
+            score *= 1.5
+                
+        
+
+    return score
+
+def score_bonuses(text,score,email_type):
+    if email_type == "job":        
+        job_keywords = ['job','career','opportunity','opportunities','apply','position','positions','resume','interview','interviews','hiring','hired','recruiter','recruiters','recruiting','skills']
+        return micro_function(score,text,job_keywords)
+        
+
+    elif email_type == "marketing":
+        job_keywords = ['?','buy','!','exclusive','limited','new','free','sale','now','special','offer','save','discount','last','chance','hurry','best','amazing','exciting','unforgettable','discover','extra','extraordinary','announcement','announce','limited']
+        return micro_function(score,text,job_keywords)
+    
+    elif email_type == "feedback":
+        job_keywords = ['thank','thanks','feedback','experience','quality','service','product','satisfied','dissatisfied','improvement','issue','appreciate','excellent','recommend','helpful','prompt','responsive','impressed','reliable','easy','suggestions']
+        return micro_function(score,text,job_keywords)
+    
+    elif email_type == "customer support":
+        job_keywords = ['please','help','feedback','thank','thanks','assistance','help','issue','problem','resolved','apologize','understand','solution','support','escalate','prompt','response','account','information','update','appreciate','satisfied']
+        return micro_function(score,text,job_keywords)
+    
+    return score
+    
+    
+        
+    
