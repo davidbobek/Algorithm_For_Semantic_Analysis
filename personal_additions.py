@@ -121,7 +121,7 @@ def score_bonuses(text,score,email_type):
         return micro_function(score,text,job_keywords)
     
     elif email_type == "customer support":
-        job_keywords = ['please','help','feedback','thank','thanks','assistance','help','issue','problem','resolved','apologize','understand','solution','support','escalate','prompt','response','account','information','update','appreciate','satisfied']
+        job_keywords = ['please','help','thank','thanks','assistance','help','issue','problem','resolved','apologize','understand','solution','support','escalate','prompt','response','account','information','update','appreciate','satisfied']
         return micro_function(score,text,job_keywords)
     
     return score
